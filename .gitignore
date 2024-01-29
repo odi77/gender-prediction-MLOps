@@ -8,6 +8,8 @@ ensai-2024-81c8c40b7933.json
 
 # model
 model.v1.bin
+poetry.lock
+pyproject.toml
 
 # C extensions
 *.so
