@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# credentials
+ensai-2024-81c8c40b7933.json
+
 # C extensions
 *.so
 
