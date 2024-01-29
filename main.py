@@ -1,8 +1,12 @@
 import flask
-from flask import Flask, escape, request
+from flask import Flask, request
 import joblib
 import pandas as pd 
 import numpy as np
+from flask import render_template
+
+
+
 
 
 app = Flask(__name__)
@@ -30,7 +34,9 @@ def encode_prenom(prenom):
             index = alphabet.index(letter)
             vector[index] += 1
     
-    return pd.Series(vector, index=list(alphabet))
+    return vector.reshape(1, -1)
+
+
 
 @app.route('/')
 def hello():
@@ -38,11 +44,38 @@ def hello():
 
 
 @app.route('/predict')
-def predict():
-    name = request.args.get("name")
+# def predict():
+#     name = request.args.get("name")
 
-    results = model.predict(encode_prenom([name]))
+#     if name is None:
+#         return flask.jsonify({"error": "Name parameter is missing"}), 400
+
+#     results = model.predict(encode_prenom(name))
+#     prediction = results[0]
+#     gender = "FEMALE" if prediction == FEMALE else "MALE"
+
+#     return flask.jsonify({"gender": gender, "name": name})
+
+
+
+@app.route('/predict', methods=['GET', 'POST'])
+def predict():
+    if request.method == 'POST':
+        # If the form is submitted, get the name from the form
+        name = request.form['name']
+    else:
+        # If it's a GET request, show the form to the user
+        return render_template('predict.html')
+
+    if name is None or name.strip() == "":
+        return flask.jsonify({"error": "Name cannot be empty"}), 400
+
+    results = model.predict(encode_prenom(name))
     prediction = results[0]
     gender = "FEMALE" if prediction == FEMALE else "MALE"
 
     return flask.jsonify({"gender": gender, "name": name})
+
+
+if __name__ == '__main__':
+    app.run()
