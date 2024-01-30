@@ -11,5 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Afficher la date
-        run: date
+      - uses: actions/checkout@v3
+      
+      - name: Docker build
+        run: docker build -t prenoms ./prenoms
