@@ -12,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
+        with:
+          ref: 'v2'  # Assurez-vous d'ajuster la référence (ref) selon vos besoins
+
       - name: Docker build
         run: docker build -t prenoms ./prenoms

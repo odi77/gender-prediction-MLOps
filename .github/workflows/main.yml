@@ -12,7 +12,7 @@ jobs:
     - name: Auth GCP gcloud
       uses: 'google-github-actions/auth@v1'
       with:
-        credentials_json: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+        credentials_json: ${{ secrets.ensai-2024-81c8c40b7933.json }}
 
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
