@@ -11,9 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-        node-version: '20'
+          node-version: '20'
+
 
       - name: Docker build
         run: docker build -t prenoms ./prenoms
