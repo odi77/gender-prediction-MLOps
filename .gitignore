@@ -10,8 +10,7 @@ model.v1.bin
 
 # model
 model.v1.bin
-poetry.lock
-pyproject.toml
+
 
 # C extensions
 *.so
