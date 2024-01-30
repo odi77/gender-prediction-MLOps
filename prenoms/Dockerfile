@@ -19,5 +19,5 @@ EXPOSE 5000
 ENV FLASK_APP main.py
 
 # Run the Flask app when the container launches
-CMD ["flask --app api run --host 0.0.0.0 --port $FLASK_PORT"]
+CMD ["bash", "-c", "flask --app api run --host 0.0.0.0 --port $FLASK_PORT"]
 
