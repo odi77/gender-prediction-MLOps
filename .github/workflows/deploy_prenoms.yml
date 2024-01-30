@@ -19,7 +19,8 @@ jobs:
         run: docker build -t prenoms ./prenoms
 
       - name: Docker login
-        run: docker login -u cyril77 -p ${{ secrets.DOCKER_PASSWORD }}
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u cyril77 --password-stdin
+
 
       - name: Docker tag
         run: docker tag prenoms cyril77/prenoms:${{ github.sha }}
