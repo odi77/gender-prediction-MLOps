@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.8
 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
