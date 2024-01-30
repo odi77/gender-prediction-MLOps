@@ -8,7 +8,7 @@ from flask import render_template
 
 
 app = Flask(__name__)
-model = joblib.load("model.v2.bin")
+model = joblib.load("model.v1.bin")
 
 MALE = 0
 FEMALE = 1
