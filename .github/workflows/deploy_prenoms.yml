@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          ref: 'v2'  # Assurez-vous d'ajuster la référence (ref) selon vos besoins
+          node-version: '20'
+
 
       - name: Docker build
         run: docker build -t prenoms ./prenoms
