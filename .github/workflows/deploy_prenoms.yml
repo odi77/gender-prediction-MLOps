@@ -53,6 +53,5 @@ jobs:
         run: |
           gcloud compute instances update-container prenoms-api-cyril \
             --container-image cyril77/prenoms:${{ github.sha }} \
-            --tags http-server \
             --zone us-central1-a \
             --container-env FLASK_PORT=80 
