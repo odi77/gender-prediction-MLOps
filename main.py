@@ -76,7 +76,6 @@ def predict():
 
     return flask.jsonify({"gender": gender, "name": name})
 
-# "--app", "api",
 
 if __name__ == '__main__':
     app.run()
