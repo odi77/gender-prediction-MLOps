@@ -46,7 +46,6 @@ jobs:
             --container-image cyril77/prenoms:${{ github.sha }} \
             --tags http-server \
             --zone us-central1-a \
-            --machine-type n1-standard-2 \
             --container-env FLASK_PORT=80
 
       - name: Update API to GCP Compute Instance
@@ -55,5 +54,4 @@ jobs:
           gcloud compute instances update-container prenoms-api-cyril \
             --container-image cyril77/prenoms:${{ github.sha }} \
             --zone us-central1-a \
-            --machine-type n1-standard-2 \
             --container-env FLASK_PORT=80 
